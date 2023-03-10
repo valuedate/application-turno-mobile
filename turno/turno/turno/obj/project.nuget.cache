@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "AhdCj+2txK6SQ0HGjAdSfA//iRslUWBwHaBGbWFe6KW2CewYistf/W9E1RVvKkS11dozRXfBEhPAGt9c96IYhw==",
+  "success": true,
+  "projectFilePath": "C:\\app\\mobile\\turno\\turno\\turno\\turno\\turno.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ricardo.fernandes\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\ricardo.fernandes\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\ricardo.fernandes\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\ricardo.fernandes\\.nuget\\packages\\xamarin.essentials\\1.7.0\\xamarin.essentials.1.7.0.nupkg.sha512",
+    "C:\\Users\\ricardo.fernandes\\.nuget\\packages\\xamarin.forms\\5.0.0.2196\\xamarin.forms.5.0.0.2196.nupkg.sha512"
+  ],
+  "logs": []
+}
