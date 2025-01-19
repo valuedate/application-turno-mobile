@@ -7,6 +7,7 @@ import 'package:turno/views/mainScreens/mais.dart';
 import 'package:turno/views/mainScreens/history/shift_history.dart';
 import 'package:turno/views/mainScreens/extraShift/extra_shift.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class MainScreens extends StatefulWidget {
@@ -19,6 +20,28 @@ class MainScreens extends StatefulWidget {
 class _MainScreensState extends State<MainScreens> {
   bool appBarHidden = false;
   int currentPageIndex = 0;
+
+  Future<void> _launchUrl() async {
+    // Replace this URL with your help page URL
+    final Uri url = Uri.parse('https://www.turno.cloud/kb');
+
+    if (!await launchUrl(
+      url,
+      mode: LaunchMode.inAppWebView, // This opens in an internal browser
+      webViewConfiguration: const WebViewConfiguration(
+        enableJavaScript: true,
+        enableDomStorage: true,
+      ),
+    )) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Could not launch $url'),
+          ),
+        );
+      }
+    }
+  }
 
   @override
   void dispose() {
@@ -36,7 +59,7 @@ class _MainScreensState extends State<MainScreens> {
           preferredSize: const Size.fromHeight(78),
           child: MyAppBar(
             hiddenAppBar: appBarHidden,
-            btnAction: () {},
+            btnAction: _launchUrl,
             btnIcon: MyIcon.help,
             btnText: AppLocalizations.of(context)!.help,
           ),

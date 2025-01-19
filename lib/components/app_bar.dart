@@ -2,6 +2,7 @@ import 'package:turno/components/buttons/rounded_elevated_button.dart';
 import 'package:turno/models/user.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:turno/utils/routes.dart'; // or whatever your routes file path is
 
 class MyAppBar extends StatefulWidget {
   final bool hiddenAppBar;
@@ -37,7 +38,9 @@ class _MyAppBarState extends State<MyAppBar> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, MyRoutes.menu);
+                },
                 style: (widget.hiddenAppBar)
                     ? const ButtonStyle(
                         padding: WidgetStatePropertyAll(

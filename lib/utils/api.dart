@@ -4,7 +4,7 @@ import 'dart:io';
 import 'package:http/http.dart' as http;
 
 class Api {
-  static String baseUrl = "https://dev.turno.pt/api/v1/mobile/";
+  static String baseUrl = "https://www.turno.pt/api/v1/mobile/";
 
   static Future<Object> loginWithEmail(
       {required String email, required String pass}) async {
