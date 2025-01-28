@@ -34,6 +34,12 @@ dart run flutter_native_splash:create
 ```
 ## IOs
 
+
+### installs on macos
+sudo gem install securerandom-0.3.2
+sudo gem install cocoapods
+
+
 ### Navegar ao folder ios:
 
 ```console
