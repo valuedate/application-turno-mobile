@@ -7,6 +7,10 @@ versões usadas:
 - Android Studio: Ladybug | 2024.2.1 Patch 2
 - Xcode: Version 16.1 (16B40)
 
+## EC2 MacOs remote
+ssh -i macos.pem ec2-user@ec2-54-198-252-248.compute-1.amazonaws.com
+
+
 ## Getting Started
 
 ### Conferir se há erros na instalação do flutter:
