@@ -14,6 +14,9 @@ ssh -i macos.pem ec2-user@ec2-52-91-144-47.compute-1.amazonaws.com
 ssh -L 5900:localhost:5900 -i macos.pem ec2-user@ec2-52-91-144-47.compute-1.amazonaws.com
 
 
+### Pass
+https://share.1password.com/s#YPAaFqmKakj8RyVikQNgAmDqRb6-vNCArLKGjx6gzEM
+
 ## Getting Started
 
 ### Conferir se há erros na instalação do flutter:
