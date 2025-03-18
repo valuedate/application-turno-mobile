@@ -8,10 +8,10 @@ versões usadas:
 - Xcode: Version 16.1 (16B40)
 
 ## EC2 MacOs remote
-ssh -i macos.pem ec2-user@ec2-54-198-252-248.compute-1.amazonaws.com
+ssh -i macos.pem ec2-user@ec2-52-91-144-47.compute-1.amazonaws.com
 
 ### GUI
-ssh -L 5900:localhost:5900 -i macos.pem ec2-user@ec2-54-198-252-248.compute-1.amazonaws.com
+ssh -L 5900:localhost:5900 -i macos.pem ec2-user@ec2-52-91-144-47.compute-1.amazonaws.com
 
 
 ## Getting Started
