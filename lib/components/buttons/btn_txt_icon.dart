@@ -55,8 +55,8 @@ class _BtnTextIconState extends State<BtnTextIcon> {
         elevation: const WidgetStatePropertyAll(0.0),
         maximumSize: WidgetStatePropertyAll(Size(widget.width!, 40)),
         minimumSize: WidgetStatePropertyAll(Size(widget.width!, 40)),
-        backgroundColor:
-            WidgetStatePropertyAll(widget.color!.withOpacity(opacity)),
+        backgroundColor: WidgetStatePropertyAll(
+            widget.color!.withAlpha((opacity * 255).toInt())),
         padding: const WidgetStatePropertyAll(EdgeInsets.zero),
         shape: const WidgetStatePropertyAll(
           RoundedRectangleBorder(
@@ -88,7 +88,7 @@ class _BtnTextIconState extends State<BtnTextIcon> {
                 widget.text,
                 style: TextStyle(
                   fontFamily: "Gantari",
-                  color: widget.textColor!.withOpacity(opacity),
+                  color: widget.textColor!.withAlpha((opacity * 255).toInt()),
                   fontSize: 15,
                   fontWeight: FontWeight.w700,
                 ),
@@ -99,8 +99,8 @@ class _BtnTextIconState extends State<BtnTextIcon> {
               ? Container(
                   constraints: const BoxConstraints(
                       maxWidth: 35, minWidth: 35, minHeight: 40),
-                  decoration:
-                      BoxDecoration(color: Colors.white.withOpacity(0.15)),
+                  decoration: BoxDecoration(
+                      color: Colors.white.withAlpha((0.15 * 255).toInt())),
                   child: ImageIcon(
                     widget.icon,
                     color: widget.textColor,
