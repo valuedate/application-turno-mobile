@@ -33,7 +33,7 @@ class ShiftCardExtra extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 15),
           child: Divider(
             height: 1,
-            color: ThemeStyle.gray.withOpacity(0.1),
+            color: ThemeStyle.gray.withAlpha((0.1 * 255).toInt()),
           ),
         ),
         if (startAt != null)
@@ -101,7 +101,7 @@ class ShiftCardExtra extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 15),
           child: Divider(
             height: 1,
-            color: ThemeStyle.gray.withOpacity(0.1),
+            color: ThemeStyle.gray.withAlpha((0.1 * 255).toInt()),
           ),
         ),
         Text(
