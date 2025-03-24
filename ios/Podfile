@@ -40,5 +40,16 @@ end
 post_install do |installer|
   installer.pods_project.targets.each do |target|
     flutter_additional_ios_build_settings(target)
+    target.build_configurations.each do |config|
+      # Flutter-specific settings
+      config.build_settings['ENABLE_BITCODE'] = 'NO'
+      
+      # iOS Deployment Target should be at least 11.0 for newer Geolocator versions
+      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '11.0'
+      
+      # Add the following line for location permissions in background
+      # This helps with background location updates if needed
+      target.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)', 'PERMISSION_LOCATION=1', 'BACKGROUND_MODES=1']
+    end
   end
 end
