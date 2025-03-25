@@ -22,13 +22,13 @@ class CustomLocationPermission {
       }
 
       // If permission is permanently denied, open app settings
-      if (status.isPermanentlyDenied) {
-        // Open app settings so user can enable permission manually
-        await openAppSettings();
+      //if (status.isPermanentlyDenied) {
+      // Open app settings so user can enable permission manually
+      //  await openAppSettings();
 
-        // Check if permission was granted after settings opened
-        return Permission.locationWhenInUse.isGranted;
-      }
+      // Check if permission was granted after settings opened
+      //  return Permission.locationWhenInUse.isGranted;
+      //}
 
       return false;
     }
