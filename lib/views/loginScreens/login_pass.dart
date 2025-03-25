@@ -8,6 +8,7 @@ import 'package:turno/utils/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class LoginPass extends StatefulWidget {
   final Function changePage;
@@ -79,7 +80,13 @@ class _LoginPassState extends State<LoginPass> {
                       },
                     ),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () async {
+                        final Uri url = Uri.parse(
+                            'https://www.turno.today/accounts/password_reset/');
+                        if (!await launchUrl(url)) {
+                          throw Exception('Could not launch $url');
+                        }
+                      },
                       child: Transform.translate(
                         offset: const Offset(0, 2),
                         child: Text(
