@@ -4,7 +4,7 @@ description: "smart operations"
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
-version: 0.0.18+2024112801
+version: 0.0.23+2025032501
 
 environment:
   sdk: ">=3.4.1 <4.0.0"
@@ -22,7 +22,7 @@ dependencies:
   provider: 6.1.2
   http: 1.2.2
   shared_preferences: 2.3.2
-  geolocator: 13.0.1
+  geolocator: 13.0.3
   permission_handler: 11.3.1
   modal_bottom_sheet: 3.0.0
 
