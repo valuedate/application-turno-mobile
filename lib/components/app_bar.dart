@@ -52,16 +52,39 @@ class _MyAppBarState extends State<MyAppBar> {
                     : null,
                 child: Row(
                   children: [
-                    Container(
-                      decoration: BoxDecoration(
-                          border: Border.all(color: Colors.white),
-                          borderRadius: BorderRadius.circular(20)),
-                      clipBehavior: Clip.hardEdge,
-                      constraints: const BoxConstraints(
-                          maxWidth: 40, minWidth: 40, minHeight: 40),
-                      child: (user.image != null || user.image != '')
-                          ? Image.network(user.image!)
-                          : Image.asset("assets/images/user_placeholder.jpg"),
+                    Stack(
+                      alignment: Alignment.center,
+                      children: [
+                        // Inner container for the image
+                        Container(
+                          width:
+                              36, // Slightly smaller to leave room for border
+                          height:
+                              36, // Slightly smaller to leave room for border
+                          clipBehavior: Clip.antiAlias,
+                          decoration: const BoxDecoration(
+                            shape: BoxShape.circle,
+                          ),
+                          child: (user.image != null && user.image != '')
+                              ? Image.network(
+                                  user.image!,
+                                  fit: BoxFit.cover,
+                                )
+                              : Image.asset(
+                                  "assets/images/user_placeholder.jpg",
+                                  fit: BoxFit.cover,
+                                ),
+                        ),
+                        // Outer container for the border
+                        Container(
+                          width: 40,
+                          height: 40,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            border: Border.all(color: Colors.white, width: 2.5),
+                          ),
+                        ),
+                      ],
                     ),
                     (!widget.hiddenAppBar)
                         ? const SizedBox(

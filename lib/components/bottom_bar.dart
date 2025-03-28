@@ -36,7 +36,7 @@ class CustomBottomBar extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Icon(
-                    MyIcon.init,
+                    Icons.event_available,
                     size: 24,
                     color:
                         (indexActive == 0) ? ThemeStyle.darkGray : Colors.white,
@@ -62,7 +62,7 @@ class CustomBottomBar extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Icon(
-                    MyIcon.calendar,
+                    Icons.history,
                     size: 24,
                     color:
                         (indexActive == 1) ? ThemeStyle.darkGray : Colors.white,
@@ -88,13 +88,13 @@ class CustomBottomBar extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Icon(
-                    MyIcon.extra,
+                    Icons.calendar_month,
                     size: 24,
                     color:
                         (indexActive == 2) ? ThemeStyle.darkGray : Colors.white,
                   ),
                   Text(
-                    AppLocalizations.of(context)!.shift_extra,
+                    AppLocalizations.of(context)!.scales,
                     style: ThemeStyle.textStyle(
                       fontSize: 13,
                       fontWeight: FontWeight.w700,

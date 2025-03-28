@@ -23,7 +23,7 @@ class _MainScreensState extends State<MainScreens> {
 
   Future<void> _launchUrl() async {
     // Replace this URL with your help page URL
-    final Uri url = Uri.parse('https://www.turno.cloud/kb');
+    final Uri url = Uri.parse('https://turno.pt/blog/view/61/');
 
     if (!await launchUrl(
       url,
