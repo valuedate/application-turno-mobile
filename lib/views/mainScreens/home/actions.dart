@@ -147,17 +147,34 @@ class _CheckShiftState extends State<CheckShift> {
 }
 
 class NoShift extends StatelessWidget {
-  const NoShift({super.key});
+  final IconData checkMarkIcon;
+
+  const NoShift({
+    super.key,
+    this.checkMarkIcon = Icons.check_circle_outline,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      "Não possui turnos associados",
-      textAlign: TextAlign.center,
-      style: ThemeStyle.textStyle(
-        fontSize: 30,
-        fontWeight: FontWeight.w700,
-      ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        // Material icon check mark
+        Icon(
+          checkMarkIcon,
+          size: 48,
+          color: ThemeStyle.primary,
+        ),
+        const SizedBox(height: 16),
+        Text(
+          "Não possui turnos associados",
+          textAlign: TextAlign.center,
+          style: ThemeStyle.textStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+      ],
     );
   }
 }
