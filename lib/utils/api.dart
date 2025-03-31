@@ -39,6 +39,12 @@ class Api {
     return jsonDecode(utf8.decode(response.bodyBytes));
   }
 
+  static Future<Object> listRotation({required String token}) async {
+    final url = "${baseUrl}listrotation?token=$token";
+    final response = await http.post(Uri.parse(url));
+    return jsonDecode(utf8.decode(response.bodyBytes));
+  }
+
   static Future<Object> timeSheetPunch({
     required String token,
     required String time,
