@@ -4,7 +4,7 @@ description: "smart operations"
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
-version: 0.0.23+2025032501
+version: 0.0.23+2025033101
 
 environment:
   sdk: ">=3.4.1 <4.0.0"
