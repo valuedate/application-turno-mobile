@@ -6,7 +6,9 @@ class BtnTextIcon extends StatefulWidget {
   final Color? textColor;
   final Color? borderColor;
   final String text;
+  // Support for both asset images and IconData (Material icons)
   final AssetImage? icon;
+  final IconData? materialIcon;
   final double? iconSize;
   final Function onClick;
   final bool disabled;
@@ -19,11 +21,13 @@ class BtnTextIcon extends StatefulWidget {
     this.borderColor = Colors.transparent,
     required this.text,
     this.icon,
+    this.materialIcon,
     this.iconSize = 20,
     this.disabled = false,
     this.width = 175,
     required this.onClick,
-  });
+  }) : assert(icon == null || materialIcon == null,
+            'You can provide either icon or materialIcon, not both');
 
   @override
   State<BtnTextIcon> createState() => _BtnTextIconState();
@@ -32,6 +36,7 @@ class BtnTextIcon extends StatefulWidget {
 class _BtnTextIconState extends State<BtnTextIcon> {
   bool disabled = false;
   double opacity = 1;
+
   @override
   void dispose() {
     disabled = false;
@@ -41,8 +46,8 @@ class _BtnTextIconState extends State<BtnTextIcon> {
 
   @override
   void initState() {
-    bool disabled = widget.disabled;
-    double opacity = widget.disabled ? 0.4 : 1.0;
+    disabled = widget.disabled;
+    opacity = widget.disabled ? 0.4 : 1.0;
     super.initState();
   }
 
@@ -95,20 +100,34 @@ class _BtnTextIconState extends State<BtnTextIcon> {
               ),
             ),
           ),
-          (widget.icon != null)
-              ? Container(
-                  constraints: const BoxConstraints(
-                      maxWidth: 35, minWidth: 35, minHeight: 40),
-                  decoration: BoxDecoration(
-                      color: Colors.white.withAlpha((0.15 * 255).toInt())),
-                  child: ImageIcon(
-                    widget.icon,
-                    color: widget.textColor,
-                    size: widget.iconSize,
-                  ))
-              : Container()
+          _buildIconContainer(),
         ],
       ),
+    );
+  }
+
+  Widget _buildIconContainer() {
+    // If both icons are null, return an empty container
+    if (widget.icon == null && widget.materialIcon == null) {
+      return Container();
+    }
+
+    return Container(
+      constraints:
+          const BoxConstraints(maxWidth: 35, minWidth: 35, minHeight: 40),
+      decoration:
+          BoxDecoration(color: Colors.white.withAlpha((0.15 * 255).toInt())),
+      child: widget.materialIcon != null
+          ? Icon(
+              widget.materialIcon,
+              color: widget.textColor!.withAlpha((opacity * 255).toInt()),
+              size: widget.iconSize,
+            )
+          : ImageIcon(
+              widget.icon,
+              color: widget.textColor!.withAlpha((opacity * 255).toInt()),
+              size: widget.iconSize,
+            ),
     );
   }
 }

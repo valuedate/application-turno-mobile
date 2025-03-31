@@ -161,8 +161,8 @@ class _InitExtraShiftState extends State<InitExtraShift> {
                                   Navigator.of(context).pop(true);
                                 },
                                 color: ThemeStyle.secondary,
-                                icon:
-                                    const AssetImage("assets/icons/extra.png"),
+                                materialIcon: Icons.timer,
+                                //icon: const AssetImage("assets/icons/extra.png"),
                                 text: "Iniciar picagem extra",
                                 width: 200,
                               ),

@@ -80,6 +80,15 @@ class ScreenShiftHistory extends StatelessWidget {
         timeShiftEnd: (item["end_at"] != null)
             ? "${endDate!.hour}:${endDate.minute}:${endDate.second}"
             : "",
+        // Add Material icons
+        teamMaterialIcon: Icons.people,
+        timeMaterialIcon: Icons.access_time,
+        timeTotalMaterialIcon: Icons.hourglass_full,
+        expandMaterialIcon: Icons.add,
+        collapseMaterialIcon: Icons.remove,
+        moonMaterialIcon: Icons.nightlight_round,
+        sunMaterialIcon: Icons.wb_sunny,
+        noCalendarMaterialIcon: Icons.event_busy,
         isExpandable: true,
         expandedContent: getExpandedContent(item),
       );

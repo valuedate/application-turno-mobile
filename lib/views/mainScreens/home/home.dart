@@ -80,8 +80,9 @@ class _MyHomePageState extends State<MyHomePage> {
                             setState(() {});
                           }
                         },
-                        text: AppLocalizations.of(context)!.init_extra_shift,
-                        icon: const AssetImage("assets/icons/extra.png"),
+                        text: AppLocalizations.of(context)!.shift_extra,
+                        materialIcon: Icons.more_time,
+                        //icon: const AssetImage("assets/icons/extra.png"),
                         color: ThemeStyle.secondary,
                         width: 200,
                       ),
@@ -152,6 +153,15 @@ class _MyHomePageState extends State<MyHomePage> {
       teamName: item["team_name"],
       timeShiftStart: item["sh_start_at"],
       timeShiftEnd: item["sh_end_at"],
+      // Add Material icons
+      teamMaterialIcon: Icons.people,
+      timeMaterialIcon: Icons.access_time,
+      timeTotalMaterialIcon: Icons.hourglass_full,
+      expandMaterialIcon: Icons.add,
+      collapseMaterialIcon: Icons.remove,
+      moonMaterialIcon: Icons.nightlight_round,
+      sunMaterialIcon: Icons.wb_sunny,
+      noCalendarMaterialIcon: Icons.event_busy,
       isExpandable: false,
     );
   }

@@ -179,7 +179,8 @@ class InitShift extends StatelessWidget {
     return (canStart)
         ? BtnTextIcon(
             text: AppLocalizations.of(context)!.init_shift,
-            icon: const AssetImage("assets/icons/timerInit.png"),
+            materialIcon: Icons.timer,
+            //icon: const AssetImage("assets/icons/timerInit.png"),
             onClick: () async {
               await CustomLocationPermission.getPermission();
               Position position = await GeolocatorHelper.getCurrentPosition();
@@ -238,7 +239,8 @@ class EndShift extends StatelessWidget {
   Widget build(BuildContext context) {
     return BtnTextIcon(
       text: AppLocalizations.of(context)!.end_shift,
-      icon: const AssetImage("assets/icons/timerStop.png"),
+      materialIcon: Icons.timer_off,
+      //icon: const AssetImage("assets/icons/timerStop.png"),
       onClick: () async {
         await showMaterialModalBottomSheet(
           expand: true,
@@ -268,7 +270,8 @@ class StartLunch extends StatelessWidget {
   Widget build(BuildContext context) {
     return BtnTextIcon(
       text: AppLocalizations.of(context)!.lunch,
-      icon: const AssetImage("assets/icons/lunch.png"),
+      materialIcon: Icons.no_meals,
+      //icon: const AssetImage("assets/icons/lunch.png"),
       onClick: () async {
         CustomLocationPermission.getPermission();
         Position position = await GeolocatorHelper.getCurrentPosition();
@@ -299,7 +302,8 @@ class EndLunch extends StatelessWidget {
   Widget build(BuildContext context) {
     return BtnTextIcon(
       text: AppLocalizations.of(context)!.end_lunch,
-      icon: const AssetImage("assets/icons/lunch.png"),
+      materialIcon: Icons.restaurant,
+      //icon: const AssetImage("assets/icons/lunch.png"),
       onClick: () async {
         CustomLocationPermission.getPermission();
         Position position = await GeolocatorHelper.getCurrentPosition();

@@ -14,20 +14,39 @@ class ShiftCard extends StatefulWidget {
   final String? shiftDescription;
   final String? totalTimeShift;
   final Widget? expandedContent;
+  // Added material icons support
+  final IconData? teamMaterialIcon;
+  final IconData? timeMaterialIcon;
+  final IconData? timeTotalMaterialIcon;
+  final IconData? expandMaterialIcon;
+  final IconData? collapseMaterialIcon;
+  final IconData? sunMaterialIcon;
+  final IconData? moonMaterialIcon;
+  final IconData? noCalendarMaterialIcon;
 
-  const ShiftCard(
-      {required this.day,
-      required this.month,
-      required this.year,
-      required this.isExpandable,
-      required this.teamName,
-      required this.timeShiftStart,
-      required this.timeShiftEnd,
-      required this.shiftCode,
-      this.totalTimeShift = "",
-      this.shiftDescription,
-      this.expandedContent,
-      super.key});
+  const ShiftCard({
+    required this.day,
+    required this.month,
+    required this.year,
+    required this.isExpandable,
+    required this.teamName,
+    required this.timeShiftStart,
+    required this.timeShiftEnd,
+    required this.shiftCode,
+    this.totalTimeShift = "",
+    this.shiftDescription,
+    this.expandedContent,
+    // Material icon parameters with default values as null
+    this.teamMaterialIcon,
+    this.timeMaterialIcon,
+    this.timeTotalMaterialIcon,
+    this.expandMaterialIcon,
+    this.collapseMaterialIcon,
+    this.sunMaterialIcon,
+    this.moonMaterialIcon,
+    this.noCalendarMaterialIcon,
+    super.key,
+  });
 
   @override
   State<ShiftCard> createState() => _ShiftCardState();
@@ -96,13 +115,7 @@ class _ShiftCardState extends State<ShiftCard> {
                           ))),
                   SizedBox(
                     width: 30,
-                    child: ImageIcon(
-                      AssetImage(
-                          "assets/icons/${(widget.shiftCode == 'F') ? 'no_calendar' : (widget.shiftCode == 'N') ? 'moon' : 'sun'}.png"),
-                      color: (widget.shiftCode == 'F')
-                          ? ThemeStyle.primary
-                          : Colors.white,
-                    ),
+                    child: _buildShiftIcon(),
                   ),
                 ],
               ),
@@ -125,10 +138,7 @@ class _ShiftCardState extends State<ShiftCard> {
                       children: [
                         Row(
                           children: [
-                            const ImageIcon(
-                              AssetImage("assets/icons/team.png"),
-                              color: ThemeStyle.primary,
-                            ),
+                            _buildTeamIcon(),
                             const SizedBox(width: 10),
                             Text(
                               widget.teamName,
@@ -141,10 +151,7 @@ class _ShiftCardState extends State<ShiftCard> {
                         ),
                         Row(
                           children: [
-                            const ImageIcon(
-                              AssetImage("assets/icons/time.png"),
-                              color: ThemeStyle.primary,
-                            ),
+                            _buildTimeIcon(),
                             const SizedBox(width: 10),
                             Text(
                               "${widget.timeShiftStart} | ${widget.timeShiftEnd}",
@@ -156,10 +163,7 @@ class _ShiftCardState extends State<ShiftCard> {
                             widget.totalTimeShift != "")
                           Row(
                             children: [
-                              const ImageIcon(
-                                AssetImage("assets/icons/timeTotal.png"),
-                                color: ThemeStyle.primary,
-                              ),
+                              _buildTimeTotalIcon(),
                               const SizedBox(width: 10),
                               Text(
                                 "Total ${widget.totalTimeShift!} horas",
@@ -201,11 +205,7 @@ class _ShiftCardState extends State<ShiftCard> {
                             topLeft: Radius.circular(10),
                           ),
                         ),
-                        child: ImageIcon(
-                          AssetImage(
-                              "assets/icons/${expanded ? 'minus' : 'plus'}.png"),
-                          color: ThemeStyle.primary,
-                        ),
+                        child: _buildExpandIcon(),
                       ),
                     ],
                   ),
@@ -215,6 +215,93 @@ class _ShiftCardState extends State<ShiftCard> {
         ],
       ),
     );
+  }
+
+  // Helper method for shift icon (sun/moon/no_calendar)
+  Widget _buildShiftIcon() {
+    if (widget.shiftCode == 'F' && widget.noCalendarMaterialIcon != null) {
+      return Icon(
+        widget.noCalendarMaterialIcon,
+        color: ThemeStyle.primary,
+      );
+    } else if (widget.shiftCode == 'N' && widget.moonMaterialIcon != null) {
+      return Icon(
+        widget.moonMaterialIcon,
+        color: Colors.white,
+      );
+    } else if (widget.shiftCode != 'F' &&
+        widget.shiftCode != 'N' &&
+        widget.sunMaterialIcon != null) {
+      return Icon(
+        widget.sunMaterialIcon,
+        color: Colors.white,
+      );
+    } else {
+      return ImageIcon(
+        AssetImage(
+            "assets/icons/${(widget.shiftCode == 'F') ? 'no_calendar' : (widget.shiftCode == 'N') ? 'moon' : 'sun'}.png"),
+        color: (widget.shiftCode == 'F') ? ThemeStyle.primary : Colors.white,
+      );
+    }
+  }
+
+  // Helper method for team icon
+  Widget _buildTeamIcon() {
+    return widget.teamMaterialIcon != null
+        ? Icon(
+            widget.teamMaterialIcon,
+            color: ThemeStyle.primary,
+          )
+        : const ImageIcon(
+            AssetImage("assets/icons/team.png"),
+            color: ThemeStyle.primary,
+          );
+  }
+
+  // Helper method for time icon
+  Widget _buildTimeIcon() {
+    return widget.timeMaterialIcon != null
+        ? Icon(
+            widget.timeMaterialIcon,
+            color: ThemeStyle.primary,
+          )
+        : const ImageIcon(
+            AssetImage("assets/icons/time.png"),
+            color: ThemeStyle.primary,
+          );
+  }
+
+  // Helper method for total time icon
+  Widget _buildTimeTotalIcon() {
+    return widget.timeTotalMaterialIcon != null
+        ? Icon(
+            widget.timeTotalMaterialIcon,
+            color: ThemeStyle.primary,
+          )
+        : const ImageIcon(
+            AssetImage("assets/icons/timeTotal.png"),
+            color: ThemeStyle.primary,
+          );
+  }
+
+  // Helper method for expand/collapse icon
+  Widget _buildExpandIcon() {
+    if (expanded && widget.collapseMaterialIcon != null) {
+      return Icon(
+        widget.collapseMaterialIcon,
+        color: ThemeStyle.primary,
+      );
+    } else if (!expanded && widget.expandMaterialIcon != null) {
+      return Icon(
+        widget.expandMaterialIcon,
+        color: ThemeStyle.primary,
+      );
+    } else {
+      return ImageIcon(
+        AssetImage("assets/icons/${expanded ? 'minus' : 'plus'}.png"),
+        color: ThemeStyle.primary,
+      );
+    }
   }
 
   void onExpanded() {

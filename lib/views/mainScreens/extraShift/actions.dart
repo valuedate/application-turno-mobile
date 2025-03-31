@@ -140,8 +140,9 @@ class NoShift extends StatelessWidget {
           builder: (context) => InitExtraShift(token: auth.token!),
         )) {}
       },
-      text: AppLocalizations.of(context)!.init_extra_shift,
-      icon: const AssetImage("assets/icons/extra.png"),
+      text: AppLocalizations.of(context)!.shift_extra,
+      materialIcon: Icons.more_time,
+      //icon: const AssetImage("assets/icons/extra.png"),
       color: ThemeStyle.secondary,
       width: 200,
     );
@@ -165,7 +166,8 @@ class InitShift extends StatelessWidget {
     return (canStart)
         ? BtnTextIcon(
             text: AppLocalizations.of(context)!.init_shift,
-            icon: const AssetImage("assets/icons/timerInit.png"),
+            materialIcon: Icons.timer,
+            //icon: const AssetImage("assets/icons/timerInit.png"),
             onClick: () async {
               await CustomLocationPermission.getPermission();
               Position position = await GeolocatorHelper.getCurrentPosition();
