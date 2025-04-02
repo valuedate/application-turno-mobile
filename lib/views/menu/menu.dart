@@ -6,6 +6,7 @@ import 'package:turno/components/footer.dart';
 import 'package:turno/utils/icons.dart';
 import 'package:turno/utils/theme.dart';
 import 'package:turno/models/auth.dart';
+import 'package:turno/views/profile.dart';
 
 class Menu extends StatelessWidget {
   const Menu({super.key});
@@ -13,6 +14,7 @@ class Menu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Auth auth = Provider.of(context, listen: false);
+
     return Container(
       decoration: const BoxDecoration(
           gradient: LinearGradient(
@@ -43,6 +45,7 @@ class Menu extends StatelessWidget {
                 children: [
                   Container(
                     transform: Matrix4.translationValues(0, -10, 0),
+                    alignment: Alignment.topLeft,
                     child: TextButton(
                       onPressed: () {
                         Navigator.of(context).pop();
@@ -54,7 +57,8 @@ class Menu extends StatelessWidget {
                             width: 40,
                             height: 40,
                             decoration: BoxDecoration(
-                              color: Colors.white.withOpacity(0.1),
+                              color:
+                                  Colors.white.withAlpha((0.1 * 255).toInt()),
                               borderRadius: BorderRadius.circular(20),
                             ),
                             child: const Center(
@@ -74,12 +78,7 @@ class Menu extends StatelessWidget {
                       ),
                     ),
                   ),
-                  // Esse trecho a abaixo ainda esta em construção, vão outras funcionalidades que ainda não estão no sendo produzidas
-                  const SingleChildScrollView(
-                    child: Column(
-                      children: [],
-                    ),
-                  ),
+                  const Profile(),
                 ],
               ),
               Column(

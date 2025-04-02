@@ -54,8 +54,6 @@ class _HomeHeroState extends State<HomeHero> {
   Widget build(BuildContext context) {
     Auth auth = Provider.of(context, listen: false);
     User user = Provider.of(context, listen: false);
-    String? shiftLate = isLate(widget.shift, now);
-    String? nextText = getNextShift(context, widget.shift);
     checkCanStart(now, widget.shift);
     _progress = updateProgress(widget.shift, _progress ?? 0);
     String greeting = (now.hour >= 6 && now.hour < 12)

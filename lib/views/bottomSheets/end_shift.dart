@@ -7,7 +7,6 @@ import 'package:turno/components/buttons/btn_txt_icon.dart';
 import 'package:turno/components/form_inputs/text_area.dart';
 import 'package:turno/components/highlight.dart';
 import 'package:turno/models/shift.dart';
-import 'package:turno/models/user.dart';
 import 'package:turno/utils/custom_location_permission.dart';
 import 'package:turno/utils/geolocator_helper.dart';
 import 'package:turno/utils/icons.dart';
