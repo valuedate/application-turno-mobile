@@ -72,5 +72,12 @@
   "unexpected_error": "Obtivemos um erro inesperado",
   "wed": "Qua",
   "welcome": "Bem-vindo ao Turno",
-  "year": "Ano"
+  "year": "Ano",
+  "code": "Código",
+  "category": "Categoria profissional",
+  "admission_data": "Data Admissão",
+  "contract_type":"Tipo de contrato",
+  "personal_info": "Informações pessoais",
+  "phone": "Tlm ou tlf",
+  "birthday": "Aniversário"
 }

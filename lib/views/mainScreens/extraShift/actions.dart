@@ -136,7 +136,7 @@ class NoShift extends StatelessWidget {
           context: context,
           isDismissible: true,
           backgroundColor: Colors.transparent,
-          barrierColor: ThemeStyle.primary.withOpacity(0.5),
+          barrierColor: ThemeStyle.primary.withAlpha((0.5 * 255).toInt()),
           builder: (context) => InitExtraShift(token: auth.token!),
         )) {}
       },

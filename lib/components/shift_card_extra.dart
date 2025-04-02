@@ -26,7 +26,6 @@ class ShiftCardExtra extends StatelessWidget {
     String? timeEnd =
         (item["end_at"] != null) ? endAt.toString().split(" ")[1] : null;
     int rating = item["rating_coworker"] ?? 0;
-    String note = item["comment"] ?? "";
     return Column(
       children: [
         Padding(

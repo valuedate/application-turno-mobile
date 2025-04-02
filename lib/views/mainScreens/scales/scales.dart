@@ -41,7 +41,7 @@ class _ScreenScalesState extends State<ScreenScales> {
         child: SingleChildScrollView(
             controller: _scrollController,
             clipBehavior: Clip.none,
-            child:
-                Container(color: Colors.white, child: Column(children: []))));
+            child: Container(
+                color: Colors.white, child: const Column(children: []))));
   }
 }
