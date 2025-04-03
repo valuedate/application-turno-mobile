@@ -7,6 +7,7 @@ import 'package:turno/views/mainScreens/mais.dart';
 import 'package:turno/views/mainScreens/history/shift_history.dart';
 import 'package:turno/views/mainScreens/extraShift/extra_shift.dart';
 import 'package:flutter/material.dart';
+import 'package:turno/views/mainScreens/scales/scales.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -83,7 +84,7 @@ class _MainScreensState extends State<MainScreens> {
               ScreenShiftHistory(
                 changeHiddenAppBar: changeAppBarHidden,
               ),
-              ScreenExtraShift(
+              ScreenScales(
                 changeHiddenAppBar: changeAppBarHidden,
                 changeActiveIndex: changeActiveIndex,
               ),
