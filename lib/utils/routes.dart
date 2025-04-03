@@ -1,6 +1,6 @@
 import 'package:turno/views/loginScreens/login_main.dart';
 import 'package:turno/views/mainScreens/main_screens.dart';
-import 'package:turno/views/menu/menu.dart';
+import 'package:turno/views/profile/profile_screen.dart';
 import 'package:turno/views/splashScreen/splash.dart';
 import 'package:flutter/material.dart';
 
