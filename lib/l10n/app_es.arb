@@ -79,5 +79,6 @@
   "contract_type":"Tipo de contrato",
   "personal_info": "Informações pessoais",
   "phone": "Tlm ou tlf",
-  "birthday": "Aniversário"
+  "birthday": "Aniversário",
+  "not_available": "Not available"
 }
